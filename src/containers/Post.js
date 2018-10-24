@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { deletePost } from '../store/actions/postActions';
@@ -48,6 +48,13 @@ export class Post extends Component {
               onClick={this.onDeleteClick.bind(this, id)}
               style={{ cursor: 'pointer' }}
             />
+            <Link to={`/posts/edit/${id}`}>
+              <i
+                className="fa fa-pencil-square-o float-right pr-3 pt-1"
+                aria-hidden="true"
+                style={{ cursor: 'pointer' }}
+              />
+            </Link>
           </h4>
           <ul className="animated bounceIn">
             <li className="list-group-item">

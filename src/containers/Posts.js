@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Post from './Post';
 import { connect } from 'react-redux';
 import { getPosts } from '../store/actions/postActions';
 import MoosePagination from './MoosePagination';
@@ -22,10 +21,22 @@ export class Posts extends Component {
     return (
       <div className="home-page pt-5">
         <h1 className="text-center mb-4">Redux Post List</h1>
-
+        <div className="row mb-5">
+          <Link
+            className="btn btn-secondary btn-block float-right"
+            to={`/posts/add`}
+          >
+            <i
+              className="fa fa-pencil pr-3 pt-1"
+              aria-hidden="true"
+              style={{ cursor: 'pointer' }}
+            />
+            Add A Post
+          </Link>
+        </div>
         <div className="row">
-          <div className="col-md-8 mx-auto">
-            <MoosePagination todos={posts} currentPage={1} todosPerPage={8} />
+          <div className="">
+            <MoosePagination todos={posts} currentPage={1} todosPerPage={10} />
           </div>
         </div>
       </div>

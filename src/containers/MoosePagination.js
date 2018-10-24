@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Pagination, PaginationItem, PaginationLink } from 'reactstrap';
+import Post from './Post';
 
 let prev = 0;
 let next = 0;
@@ -65,17 +66,22 @@ export class MoosePagination extends Component {
 
     return (
       <div className="mt-5">
-        <ul className="list-group">
+        <ul className="row">
           {currentTodos.map((todo, index) => {
             return (
-              <li className="list-group-item" key={index}>
-                {todo.title}
-              </li>
+              <span className="" key={index}>
+                <Post
+                  key={todo.id}
+                  id={todo.id}
+                  title={todo.title}
+                  body={todo.body}
+                />
+              </span>
             );
           })}
         </ul>
-        <ul id="page-numbers">
-          <nav>
+        <ul id="" className="row">
+          <nav className="mx-auto">
             <Pagination>
               <PaginationItem>
                 {prev === 0 ? (
